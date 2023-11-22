@@ -462,36 +462,36 @@ console.log(aux);
 
 // CLASES - class
 
-class Persona {
-  constructor(nombre) {
-    this.nombre = nombre;
-  }
+// class Persona {
+//   constructor(nombre) {
+//     this.nombre = nombre;
+//   }
 
-  saludar() {
-    console.log(`Hola, soy ${this.nombre}.`);
-  }
-}
+//   saludar() {
+//     console.log(`Hola, soy ${this.nombre}.`);
+//   }
+// }
 
-const joan = new Persona("Joan");
+// const joan = new Persona("Joan");
 //console.log(joan);
 //joan.saludar();
 
 // HERENCIA
-class Empleado extends Persona {
+// class Empleado extends Persona {
 
-  constructor(nombre, salario) {
-    super(nombre);
-    this.salario = salario;
-  }
+//   constructor(nombre, salario) {
+//     super(nombre);
+//     this.salario = salario;
+//   }
 
-  trabajar() {
-    console.log(`${this.nombre} está trabajando.`);
-  }
-}
+//   trabajar() {
+//     console.log(`${this.nombre} está trabajando.`);
+//   }
+// }
 
-const maria = new Empleado();
+//const maria = new Empleado();
 //maria.nombre = "Olga";
-console.log(maria.nombre);
+//console.log(maria.nombre);
 //maria.saludar();
 //maria.trabajar();
 
@@ -513,8 +513,8 @@ console.log(maria.nombre);
 // Son objetos que implementan el protocolo de iteración en JavaScript.
 // Permiten recorrer y acceder a los elementos de una colección uno a uno.
 
-const numeros = [1, 2, 3];
-const iterador = numeros[Symbol.iterator]();
+// const numeros = [1, 2, 3];
+// const iterador = numeros[Symbol.iterator]();
 
 // console.log(iterador.next());
 // console.log(iterador.next());
@@ -526,19 +526,19 @@ const iterador = numeros[Symbol.iterator]();
 // No permite duplicados y ofrece métodos para agregar,
 // eliminar y verificar la existencia de elementos.
 
-const setNumeros = new Set();
-setNumeros.add(1);
-setNumeros.add(2);
-setNumeros.add(3);
+// const setNumeros = new Set();
+// setNumeros.add(1);
+// setNumeros.add(2);
+// setNumeros.add(3);
 
 //console.log(setNumeros.has(2));
-setNumeros.delete(2);
+//setNumeros.delete(2);
 //console.log(setNumeros.has(2));
 
 //console.log(setNumeros.size);
 //console.log(setNumeros);
 
-const iteratorNumeros = setNumeros[Symbol.iterator]();
+//const iteratorNumeros = setNumeros[Symbol.iterator]();
 //console.log(iteratorNumeros.next());
 
 // MAP
@@ -557,9 +557,64 @@ const iteratorNumeros = setNumeros[Symbol.iterator]();
 // console.log(mapaNombres.size);
 // console.log(mapaNombres);
 
+// COOKIES
+/*
+  Las utilizamos para:
+  - Monitorizar la actividad de los usuarios.
+  - Mantener opciones de visualización o de aspecto
+  para el usuario.
+  - Almacenar variables en el lado cliente.
+  - Identificación o autenticación.
 
+  CREAR UNA COOKIE
+*/
+// function crearCookie(usuarioCookie) {
+//   console.log("Creando la cookie...");
+//   usuarioCookie += ";expires=Mon, 6 Nov 2023 12:15:00 GMT";
+//   document.cookie = "usuario=" + encodeURIComponent(usuarioCookie);
+// }
 
+// function leerCookies() {
+//   console.log("Leyendo las cookies...");
+//   console.log(decodeURIComponent(document.cookie));
+// }
 
+/*
+  LOCAL STORAGE
+
+  setItem(clave, valor)
+
+  getItem(clave)
+*/
+
+function guardaValores() {
+  console.log("Guardando valores en el Local Storage...");
+  let usuariosWeb = {
+    nombre: "Joan",
+    apellido: "Melsión"
+  };
+  localStorage.setItem("usuarios", JSON.stringify(usuariosWeb));
+}
+
+function leerValores() {
+  console.log("Leyendo valores en el Local Storage...");
+  let valor = JSON.parse(localStorage.getItem("usuarios"));
+  console.log(valor == null ? "La clave no se ha encontrado." : valor);
+}
+
+/*
+  RECURSIVIDAD  
+*/
+
+function factorial(numero) {
+
+  if(numero == 0) return 1;
+
+  return (numero * factorial(numero - 1));
+}
+
+let numero = factorial(6);
+console.log(numero);
 
 
 
